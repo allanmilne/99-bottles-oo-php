@@ -1,0 +1,13 @@
+{
+    "name": "allanmilne/99-bottles-oo-php",
+    "description": "99 Bottles of OOP in PHP",
+    "type": "project",
+    "require": {
+        "php": "^8.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phploc/phploc": "^7.0.0"
+    }
+}
