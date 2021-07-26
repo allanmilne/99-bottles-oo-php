@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use JetBrains\PhpStorm\Pure;
 
-final class BottleNumber
+class BottleNumber
 {
     private int $number;
 
