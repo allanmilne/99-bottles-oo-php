@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-use JetBrains\PhpStorm\Pure;
 require __DIR__ . "/../src/BottleNumber.php";
 require __DIR__ . "/../src/BottleNumber0.php";
+require __DIR__ . "/../src/BottleNumber1.php";
 
 final class Bottles
 {
@@ -28,26 +28,25 @@ final class Bottles
         );
     }
 
-    #[Pure] public function verse(int $number): string
+    public function verse(int $number): string
     {
         $bottleNumber = $this->bottleNumberFor($number);
         $nextBottleNumber = $this->bottleNumberFor($bottleNumber->successor());
 
         return
-            ucfirst("{$bottleNumber} of beer on the wall, ") .
-            "{$bottleNumber} of beer.\n" .
+            ucfirst("$bottleNumber of beer on the wall, ") .
+            "$bottleNumber of beer.\n" .
             $bottleNumber->action() .
-            "{$nextBottleNumber} of beer on the wall.\n";
+            "$nextBottleNumber of beer on the wall.\n";
     }
 
     public function bottleNumberFor(int $number): BottleNumber
     {
-        if ($number === 0) {
-            $className = BottleNumber0::class;
-        } else {
-            $className = BottleNumber::class;
-        }
-
+        $className = match ($number) {
+            0 => BottleNumber0::class,
+            1 => BottleNumber1::class,
+            default => BottleNumber::class,
+        };
         return new $className($number);
     }
 }
