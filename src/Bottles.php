@@ -28,25 +28,18 @@ final class Bottles
         );
     }
 
+    /**
+     * @param int $number
+     * @return string
+     */
     public function verse(int $number): string
     {
-        $bottleNumber = $this->bottleNumberFor($number);
-        $nextBottleNumber = $this->bottleNumberFor($bottleNumber->successor());
+        $bottleNumber = BottleNumber::for($number);
 
         return
             ucfirst("$bottleNumber of beer on the wall, ") .
             "$bottleNumber of beer.\n" .
             $bottleNumber->action() .
-            "$nextBottleNumber of beer on the wall.\n";
-    }
-
-    public function bottleNumberFor(int $number): BottleNumber
-    {
-        $className = match ($number) {
-            0 => BottleNumber0::class,
-            1 => BottleNumber1::class,
-            default => BottleNumber::class,
-        };
-        return new $className($number);
+            "{$bottleNumber->successor()} of beer on the wall.\n";
     }
 }

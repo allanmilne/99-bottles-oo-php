@@ -13,6 +13,22 @@ class BottleNumber
     }
 
     /**
+     * BottleNumber factory
+     *
+     * @param $number
+     * @return BottleNumber
+     */
+    public static function for($number): BottleNumber
+    {
+        $className = match ($number) {
+            0 => BottleNumber0::class,
+            1 => BottleNumber1::class,
+            default => BottleNumber::class,
+        };
+        return new $className($number);
+    }
+
+    /**
      * @return string
      */
     #[Pure] public function action(): string
@@ -31,11 +47,11 @@ class BottleNumber
     /**
      * Determine the following verse number
      *
-     * @return int
+     * @return BottleNumber
      */
-    public function successor(): int
+    public function successor(): BottleNumber
     {
-        return ($this->number - 1);
+        return BottleNumber::for($this->number - 1);
     }
 
     #[Pure] public function __toString(): string
