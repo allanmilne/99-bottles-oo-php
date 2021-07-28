@@ -11,6 +11,9 @@ class BottleNumber1 extends BottleNumber
         return "bottle";
     }
 
+    /**
+     * @return string
+     */
     public function pronoun(): string
     {
         return "it";
