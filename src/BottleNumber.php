@@ -23,6 +23,7 @@ class BottleNumber
         $className = match ($number) {
             0 => BottleNumber0::class,
             1 => BottleNumber1::class,
+            6 => BottleNumber6::class,
             default => BottleNumber::class,
         };
         return new $className($number);

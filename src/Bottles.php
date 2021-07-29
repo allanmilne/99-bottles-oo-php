@@ -4,6 +4,7 @@ declare(strict_types=1);
 require __DIR__ . "/../src/BottleNumber.php";
 require __DIR__ . "/../src/BottleNumber0.php";
 require __DIR__ . "/../src/BottleNumber1.php";
+require __DIR__ . "/../src/BottleNumber6.php";
 
 final class Bottles
 {
