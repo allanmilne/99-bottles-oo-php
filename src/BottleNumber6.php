@@ -1,0 +1,7 @@
+<?php
+
+
+class BottleNumber6
+{
+
+}
