@@ -5,28 +5,22 @@ use JetBrains\PhpStorm\Pure;
 
 class BottleNumber
 {
-    private int $number;
+    protected static array $registry = [];
+    protected int $number;
 
     public function __construct(int $number)
     {
         $this->number = $number;
     }
 
-    /**
-     * BottleNumber factory
-     *
-     * @param $number
-     * @return BottleNumber
-     */
-    public static function for($number): BottleNumber
+    public static function register(string $candidate): void
     {
-        $className = match ($number) {
-            0 => BottleNumber0::class,
-            1 => BottleNumber1::class,
-            6 => BottleNumber6::class,
-            default => BottleNumber::class,
-        };
-        return new $className($number);
+        array_unshift(self::$registry, $candidate);
+    }
+
+    public static function handles(int $number): bool
+    {
+        return true;
     }
 
     /**
@@ -55,6 +49,21 @@ class BottleNumber
         return BottleNumber::for($this->number - 1);
     }
 
+    /**
+     * BottleNumber factory
+     *
+     * @param int $number
+     * @return BottleNumber
+     */
+    public static function for(int $number): BottleNumber
+    {
+        foreach (self::$registry as $candidate) {
+            if ($candidate::handles($number)) {
+                return new $candidate($number);
+            }
+        }
+    }
+
     #[Pure] public function __toString(): string
     {
         return $this->quantity() . " " . $this->container();
@@ -78,3 +87,5 @@ class BottleNumber
         return "bottles";
     }
 }
+
+BottleNumber::register(BottleNumber::class);
