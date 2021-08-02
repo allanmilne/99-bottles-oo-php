@@ -5,6 +5,11 @@ use JetBrains\PhpStorm\Pure;
 
 class BottleNumber0 extends BottleNumber
 {
+    public static function handles(int $number): bool
+    {
+        return $number === 0;
+    }
+
     /**
      * @return string
      */
@@ -29,3 +34,5 @@ class BottleNumber0 extends BottleNumber
         return BottleNumber::for(99);
     }
 }
+
+BottleNumber::register(BottleNumber0::class);
