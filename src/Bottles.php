@@ -5,9 +5,16 @@ require __DIR__ . "/../src/BottleNumber.php";
 require __DIR__ . "/../src/BottleNumber0.php";
 require __DIR__ . "/../src/BottleNumber1.php";
 require __DIR__ . "/../src/BottleNumber6.php";
+require __DIR__ . "/../src/BottleVerse.php";
 
 final class Bottles
 {
+    protected string $verseTemplate;
+
+    public function __construct(string $verseTemplate = BottleVerse::class)
+    {
+        $this->verseTemplate = $verseTemplate;
+    }
 
     public function song(): string
     {
