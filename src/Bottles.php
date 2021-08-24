@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-require __DIR__ . "/../src/BottleNumber.php";
-require __DIR__ . "/../src/BottleNumber0.php";
-require __DIR__ . "/../src/BottleNumber1.php";
-require __DIR__ . "/../src/BottleNumber6.php";
-require __DIR__ . "/../src/BottleVerse.php";
+require_once __DIR__ . "/../src/BottleNumber.php";
+require_once __DIR__ . "/../src/BottleNumber0.php";
+require_once __DIR__ . "/../src/BottleNumber1.php";
+require_once __DIR__ . "/../src/BottleNumber6.php";
+require_once __DIR__ . "/../src/BottleVerse.php";
 
 final class Bottles
 {
