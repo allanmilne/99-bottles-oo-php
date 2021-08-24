@@ -2,65 +2,10 @@
 
 use PHPUnit\Framework\TestCase;
 
-require __DIR__ . "/../src/Bottles.php";
+require_once __DIR__ . "/../src/Bottles.php";
 
 class BottlesTest extends TestCase
 {
-    public function test_the_first_verse(): void
-    {
-        $expected =
-            "99 bottles of beer on the wall, " .
-            "99 bottles of beer.\n" .
-            "Take one down and pass it around, " .
-            "98 bottles of beer on the wall.\n";
-
-        self::assertEquals($expected, (new Bottles())->verse(99));
-    }
-
-    public function test_another_verse(): void
-    {
-        $expected =
-            "3 bottles of beer on the wall, " .
-            "3 bottles of beer.\n" .
-            "Take one down and pass it around, " .
-            "2 bottles of beer on the wall.\n";
-
-        self::assertEquals($expected, (new Bottles())->verse(3));
-    }
-
-    public function test_verse_2(): void
-    {
-        $expected =
-            "2 bottles of beer on the wall, " .
-            "2 bottles of beer.\n" .
-            "Take one down and pass it around, " .
-            "1 bottle of beer on the wall.\n";
-
-        self::assertEquals($expected, (new Bottles())->verse(2));
-    }
-
-    public function test_verse_1(): void
-    {
-        $expected =
-            "1 bottle of beer on the wall, " .
-            "1 bottle of beer.\n" .
-            "Take it down and pass it around, " .
-            "no more bottles of beer on the wall.\n";
-
-        self::assertEquals($expected, (new Bottles())->verse(1));
-    }
-
-    public function test_verse_0(): void
-    {
-        $expected =
-            "No more bottles of beer on the wall, " .
-            "no more bottles of beer.\n" .
-            "Go to the store and buy some more, " .
-            "99 bottles of beer on the wall.\n";
-
-        self::assertEquals($expected, (new Bottles())->verse(0));
-    }
-
     public function test_a_couple_verses(): void
     {
         $expected =

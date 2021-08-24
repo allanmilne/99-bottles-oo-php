@@ -5,11 +5,6 @@ class BottleVerse
 {
     protected object $bottleNumber;
 
-    public function __construct(object $number)
-    {
-        $this->bottleNumber = $number;
-    }
-
     /**
      * @param int $number
      * @return string
@@ -17,6 +12,11 @@ class BottleVerse
     public static function lyrics(int $number): string
     {
         return (new BottleVerse(BottleNumber::for($number)))->_lyrics();
+    }
+
+    public function __construct(object $number)
+    {
+        $this->bottleNumber = $number;
     }
 
     /**
