@@ -1,9 +1,16 @@
 <?php
 declare(strict_types=1);
 
-class BottleVerse
+require_once __DIR__ . "/../src/CountDownSongVerse.php";
+
+final class BottleVerse implements CountDownSongVerse
 {
     protected object $bottleNumber;
+
+    public function __construct(object $number)
+    {
+        $this->bottleNumber = $number;
+    }
 
     /**
      * @param int $number
@@ -12,11 +19,6 @@ class BottleVerse
     public static function lyrics(int $number): string
     {
         return (new BottleVerse(BottleNumber::for($number)))->_lyrics();
-    }
-
-    public function __construct(object $number)
-    {
-        $this->bottleNumber = $number;
     }
 
     /**

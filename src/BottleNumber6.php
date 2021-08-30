@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-class BottleNumber6 extends BottleNumber
+final class BottleNumber6 extends BottleNumber
 {
     public static function handles(int $number): bool
     {

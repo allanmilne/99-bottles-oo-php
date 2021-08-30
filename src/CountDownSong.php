@@ -7,18 +7,21 @@ require_once __DIR__ . "/../src/BottleNumber1.php";
 require_once __DIR__ . "/../src/BottleNumber6.php";
 require_once __DIR__ . "/../src/BottleVerse.php";
 
-final class Bottles
+final class CountDownSong
 {
     protected string $verseTemplate;
+    protected int $max, $min;
 
-    public function __construct(string $verseTemplate = BottleVerse::class)
+    public function __construct(string $verseTemplate = BottleVerse::class, int $max = 999999, int $min = 0)
     {
         $this->verseTemplate = $verseTemplate;
+        $this->max = $max;
+        $this->min = $min;
     }
 
     public function song(): string
     {
-        return $this->verses(99, 0);
+        return $this->verses($this->max, $this->min);
     }
 
     /**

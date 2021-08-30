@@ -4,7 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 class BottleVerseTest extends TestCase
 {
-    public function test_the_first_verse(): void
+    public function test_verse_general_rule_upper_bound(): void
     {
         $expected =
             "99 bottles of beer on the wall, " .
@@ -15,7 +15,7 @@ class BottleVerseTest extends TestCase
         self::assertEquals($expected, BottleVerse::lyrics(99));
     }
 
-    public function test_another_verse(): void
+    public function test_verse_general_rule_lower_bound(): void
     {
         $expected =
             "3 bottles of beer on the wall, " .
@@ -35,6 +35,28 @@ class BottleVerseTest extends TestCase
             "1 bottle of beer on the wall.\n";
 
         self::assertEquals($expected, BottleVerse::lyrics(2));
+    }
+
+    public function test_verse_7(): void
+    {
+        $expected =
+            "7 bottles of beer on the wall, " .
+            "7 bottles of beer.\n" .
+            "Take one down and pass it around, " .
+            "1 six-pack of beer on the wall.\n";
+
+        self::assertEquals($expected, BottleVerse::lyrics(7));
+    }
+
+    public function test_verse_6(): void
+    {
+        $expected =
+            "1 six-pack of beer on the wall, " .
+            "1 six-pack of beer.\n" .
+            "Take one down and pass it around, " .
+            "5 bottles of beer on the wall.\n";
+
+        self::assertEquals($expected, BottleVerse::lyrics(6));
     }
 
     public function test_verse_1(): void
